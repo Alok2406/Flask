@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+
+{% block body  %}<!--body containt goes here-->
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url(' {{ url_for('static', filename='assets/img/home-bg.jpg') }}  ')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h1>{{params['blog_name']}}</h1>
+                        <span class="subheading">{{params['tag_line']}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--To flash the messages -->
+    {% with messages = get_flashed_messages(with_categories=true)%}
+        {% if messages %}
+            {% for category,message in messages %}
+                <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+                    <strong>{{message}}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}   
+        {% endif %}
+    {% endwith %}         
+        
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+
+
+
+                <!-- Post preview-->
+                {% for post in posts %}
+                <a href="/post/{{post.slug}}"><h3 class="post-title">{{post.title}}</h3></a>
+                <div class="post-preview">
+                    <a href="/post/{{post.slug}}"></a>
+                    <h4><i>{{post.sub_head}}</i></h4>
+                    <p class="post-meta">
+                        Posted by
+                        <a href="/about">{{post.author}}</a>
+                        on {{post.date}}
+                    </p>
+                    <blockquote class="blockquote">{{post.content[0:200]}}...</blockquote><br>
+                </div>
+                
+                <!-- Divider-->
+                <hr class="my-4" />
+                {% endfor %} 
+                <!-- Pager-->
+                <div class="clearfix mb-4">   
+                    <a class="btn btn-primary float-left" href="{{prev}}">
+                        &larr; Newer Posts
+                    </a>
+                    <a class="btn btn-primary float-right " href="{{next}}">
+                        Older Posts → 
+                    </a>
+                </div>
+            </div>    
+        </div>
+    </div>
+        
+{% endblock  %}

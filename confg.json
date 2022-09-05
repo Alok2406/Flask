@@ -1,0 +1,23 @@
+
+{
+
+"params":{
+    "local_server":"True",
+    "local_uri":"mysql://root:@localhost/codehash",
+    "production_uri":"mysql://(username_here):@localhost/codehash",
+    "fb_url":"https://facebook.com/alokmotghare",
+    "tw_url":"https://twitter.com/alokmotghare",
+    "git_url":"https://github.com/Alok2406",
+    "blog_name":"Code Dash",
+    "tag_line":"A Blog To Start Program",
+    "gmail-user":"lootbaaj@gmail.com",
+    "gmail-password":"ieioiyietbfibcaq",
+    "about_author":"Hi my name is alok and i'm Coding junky by profession",
+    "no_of_posts":3,
+    "login_img":"a1.jpg",
+    "admin_username":"Alok",
+    "admin_password":"Alok",
+    "upload_location":"C:\\Users\\Alok\\Desktop\\Flask\\static\\assets\\img"
+}
+
+}

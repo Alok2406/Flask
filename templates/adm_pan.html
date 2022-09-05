@@ -1,0 +1,76 @@
+{% extends 'layout.html' %}
+
+{% block body  %}<!--Admin Panel containt goes here-->
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url(' {{ url_for('static', filename='assets/img/home-bg.jpg') }}  ')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h1>Admin Panel</h1>
+                        <span class="subheading">Post Managment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+     
+      
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <h4>Add New Post</h4> 
+                <a href="/editpost/0">
+                <button type="button" class="btn rounded-pill btn-primary btn-sm">
+                Add New Post</button></a>
+                <a href="/logout">
+                <button type="button" class="btn rounded-pill btn-danger btn-sm">
+                Logout</button></a> 
+                <hr> 
+                <br>
+                <h4>Upload New file</h4> 
+                 
+                <label for="fileupload"> Select a file to upload</label>   
+                <form action="/uploader" method="post" enctype="multipart/form-data"> 
+                    <input type="file" name="fileupload" value="fileupload" id="fileupload"> 
+                    <button type="submit" value="submit" class="btn rounded-pill btn-primary btn-sm">
+                        Submit
+                    </button>
+                </form>
+
+                    </a>
+                <hr>
+                <br>
+                <h4 class="mt-3"><center> Edit Posts </center></h4> 
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">sno</th>
+                        <th scope="col">title</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for post in posts %}
+                            
+                            <tr>
+                                <th scope="col">{{post.sno}}</th>
+                                <th scope="col">{{post.title}}</th>
+                                <th scope="col">{{post.date}}</th>
+                                <th scope="col"> <a href="/editpost/{{post.sno}}"> <button type="button" id="submitButton" type="submit" class="btn rounded-pill btn-primary btn-sm">Edit</button></a></th>
+                                <th scope="col"><a href="/delete/{{post.sno}}"><button type="button" class="btn rounded-pill btn-danger btn-sm">Delete</button></a></th>
+                            </tr>
+
+                        {% endfor %}   
+                    </tbody>
+                </table>
+                <br>
+                <!-- Pager-->
+            </div>
+        </div>
+    </div>
+        
+{% endblock  %}

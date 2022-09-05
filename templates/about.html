@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('{{url_for('static', filename='assets/img/about-bg.jpg') }}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>About Me</h1>
+                            <span class="subheading">{{params['about_author']}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>
+    
+    <!-- Main Content-->
+    <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p class="slogan"><center>
+                            <h3><span><i>“Education is not the filling of a pot</i></span></h4>
+                            <h3><span><i>but the lighting of a fire.”</i></span></center></h3>
+                        </p>
+                        <p>CodeDash is founded with a vision of providing life-transforming learning     experiences to anyone, 
+                            anywhere. By connecting students all over the world to the best instructors, we are helping 
+                            individuals reach their goals and pursue their dreams. Talent is universal, but opportunities are not. 
+                            With access to plethora of online learning resources and instruction, anyone, anywhere, can gain skills 
+                            and transform their lives in meaningful ways. We believe the world's best teachers aren't always found in 
+                            classrooms. They can come from virtually anywhere and teach us something pithy and consequential.</p>
+                            <p> Our instructors are passionate about sharing their knowledge and helping students. They are experts who stay active in their fields in order to deliver the most up-to-date content. Our culture is diverse, inclusive, and committed to personal and professional development. We are not afraid to take on a new challenge, but most importantly we passionately believe in inspiring the world to learn</p>
+                        <p>A few great people can make a big difference. We welcome you with open arms, to comprehend something old, and to pursue something new!
+                        </p>
+                        <t> Thank you.
+                    </div>
+                </div>
+            </div>
+    </main>
+
+{% endblock%}
+
+
+
