@@ -198,8 +198,8 @@ def uploader():
         if request.method=='POST':
             ufile= request.files['fileupload']
             ufile.save (os.path.join(app.config['UPLOAD_FOLDER'],secure_filename(ufile.filename) ))
-            return "upload Succesfull"
-
+            flash("upload Succesfull","success")
+            return redirect('/login')
 
 
 #to delete a post

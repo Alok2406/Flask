@@ -37,6 +37,16 @@
                     <button type="submit" value="submit" class="btn rounded-pill btn-primary btn-sm">
                         Submit
                     </button>
+                    {% with messages = get_flashed_messages(with_categories=true)%}
+                            {% if messages %}
+                                {% for category,message in messages %}
+                                    <div class="alert alert-{{category}} alert-dismissible fade show mt-2" role="alert">
+                                        <strong>{{message}}</strong>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                {% endfor %}   
+                            {% endif %}
+                        {% endwith %}   
                 </form>
 
                     </a>
